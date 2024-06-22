@@ -1,0 +1,21 @@
+.col .p-3 {
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 150px;
+    }
+
+    .col .p-3:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+      margin-bottom: 2rem;
+    }

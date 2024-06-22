@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+
+{%block title %} {{title}} {% endblock title %}
+
+
+{% block css %}rel="stylesheet" href="{{ url_for('static', filename='search.css')}}" {% endblock css %}
+
+
+{% block search%}
+<div class="d-flex justify-content-center">
+        <form class="d-flex mt-3" role="search" method="post" action="{{ url_for('search') }}">
+          <input class="form-control me-2" type="search" name="query" placeholder="შეიყვანეთ ქალაქი" aria-label="Search">
+          <button class="btn btn-primary" type="submit">ძებნა</button>
+        </form>
+      </div>
+{% endblock search %}
+
+
+{% block input %}
+    {% with messages =get_flashed_messages(with_categories=True) %}
+        {% for category, message in messages %}
+            <p class="{{ category }}"> {{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+
+  <title>ამინდის პროგნოზი</title>
+
+
+<body>
+  <div class="container vh-100 d-flex justify-content-center align-items-center mt-5">
+    <div class="card" style="width: 80rem; margin-top: 3rem;">
+      <img src="{{image_url}}" class="card-img-top" alt="ქალაქის სურათი">
+      <div class="card-body">
+        <div class="container text-center">
+          <h1 class="title">{{forecast[0]}}</h1>
+          <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <div class="col">
+              <div class="p-3">გრძედი : {{forecast[1]}}</div>
+            </div>
+            <div class="col">
+              <div class="p-3">ტემპერატურა : {{forecast[3]}}°C</div>
+            </div>
+            <div class="col">
+              <div class="p-3">{{forecast[4]}}</div>
+            </div>
+            <div class="col">
+              <div class="p-3">იგრძნობა როგორც, {{forecast[5]}}°C</div>
+            </div>
+            <div class="col">
+              <div class="p-3">მინიმალური °C : {{forecast[6]}}°C</div>
+            </div>
+            <div class="col">
+              <div class="p-3">განედი : {{forecast[2]}}</div>
+            </div>
+            <div class="col">
+              <div class="p-3">მაქსიმალური °C : {{forecast[7]}}</div>
+            </div>
+            <div class="col">
+              <div class="p-3">ტენიანობა : {{forecast[8]}}%</div>
+            </div>
+            <div class="col">
+              <div class="p-3">მზის ამოსვლა : {{forecast[9]}}</div>
+            </div>
+            <div class="col">
+              <div class="p-3">მზის ჩასვლა : {{forecast[10]}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+{% endblock input %}

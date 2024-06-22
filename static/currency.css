@@ -1,0 +1,75 @@
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+    .row {
+        margin-top: 65px;
+    }
+    .container {
+        padding-top: 5%;
+    }
+    .converter {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+    .converter h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .converter select, .converter input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .converter button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .converter button:hover {
+        background-color: #218838;
+    }
+    .card-title {
+        text-align: center;
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        margin: 0;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .card {
+        transition: transform 0.2s;
+        margin-bottom: 20px;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .card-body ul {
+        padding: 0;
+    }
+    .list-group-item {
+        background-color: #f8f9fa;
+        text-align: center;
+    }
+    .list-group-item:nth-child(odd) {
+        background-color: #e9ecef;
+    }
+    .list-group-item:hover {
+        background-color: #007bff;
+        color: white;
+    }

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %} ვრცლად... {% endblock title %}
+
+
+{% block css %} rel="stylesheet" href="{{ url_for('static', filename='read_more.css')}}" {% endblock css %}
+
+
+{% block back_to_main %}
+<a href="{{ url_for('home')}}" class="btn btn-primary">მთავარი მენიუ</a>
+{% endblock back_to_main %}
+
+
+{% block readmore %}
+<div style="margin-top: 80px;">
+  <div class="card custom-card mb-3">
+    <img src="{{ image }}" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{ content }}</p>
+      <p class="card-text"><small class="text-body-secondary">{{ time }}</small></p>
+    </div>
+  </div>
+</div>
+{% endblock readmore %}

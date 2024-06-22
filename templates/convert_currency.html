@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block css %}rel="stylesheet" href="{{ url_for('static', filename='convert_currency.css')}}"  {% endblock css %}
+
+{% block back_to_main %}
+<a href="{{ url_for('home') }}" class="btn btn-primary">მთავარი მენიუ</a>
+{% endblock back_to_main %}
+
+{% block convert %}
+
+<div class="container">
+    <div class="converter">
+        <h2>ვალუტის გადამყვანი</h2>
+        <form id="currency-form">
+            <label for="from-currency">რომელი ვალუტიდან გსურთ თანხის გადაყვანა:</label>
+            <select id="from-currency" name="from-currency">
+                <option value="AED">AED - არაბეთის გაერთიანებული საამიროების დირჰამი</option>
+                <option value="AMD">AMD - სომხური დრამი</option>
+                <option value="AUD">AUD - ავსტრალიური დოლარი</option>
+                <option value="AZN">AZN - აზერბაიჯანული მანათი</option>
+                <option value="BGN">BGN - ბულგარული ლევი</option>
+                <option value="BRL">BRL - ბრაზილიური რიალი</option>
+                <option value="BYN">BYN - ბელარუსული რუბლი</option>
+                <option value="CAD">CAD - კანადური დოლარი</option>
+                <option value="CHF">CHF - შვეიცარიული ფრანკი</option>
+                <option value="CNY">CNY - ჩინური იუანი</option>
+                <option value="CZK">CZK - ჩეხური კრონა</option>
+                <option value="DKK">DKK - დანიური კრონი</option>
+                <option value="EGP">EGP - ეგვიპტური გირვანქა</option>
+                <option value="EUR">EUR - ევრო</option>
+                <option value="GBP">GBP - დიდი ბრიტანეთის გირვანქა სტერლინგი</option>
+                <option value="HKD">HKD - ჰონკონგური დოლარი</option>
+                <option value="HUF">HUF - უნგრული ფორინტი</option>
+                <option value="ILS">ILS - ისრაელის შეკელი</option>
+                <option value="INR">INR - ინდური რუპია</option>
+                <option value="IRR">IRR - ირანული რიალი</option>
+                <option value="ISK">ISK - ისლანდიური კრონი</option>
+                <option value="JPY">JPY - იაპონური იენი</option>
+                <option value="KGS">KGS - ყირგიზული სომი</option>
+                <option value="KRW">KRW - სამხრეთ კორეული ვონი</option>
+                <option value="KWD">KWD - ქუვეითური დინარი</option>
+                <option value="KZT">KZT - ყაზახური ტენგე</option>
+                <option value="MDL">MDL - მოლდოვური ლეი</option>
+                <option value="NOK">NOK - ნორვეგიული კრონი</option>
+                <option value="NZD">NZD - ახალზელანდიური დოლარი</option>
+                <option value="PLN">PLN - პოლონური ზლოტი</option>
+                <option value="QAR">QAR - კატარული რიალი</option>
+                <option value="RON">RON - რუმინული ლეი</option>
+                <option value="RSD">RSD - სერბიული დინარი</option>
+                <option value="RUB">RUB - რუსული რუბლი</option>
+                <option value="SEK">SEK - შვედური კრონი</option>
+                <option value="SGD">SGD - სინგაპურული დოლარი</option>
+                <option value="TJS">TJS - ტაჯიკური სომონი</option>
+                <option value="TMT">TMT - თურქმენული მანათი</option>
+                <option value="TRY">TRY - თურქული ლირა</option>
+                <option value="UAH">UAH - უკრაინული გრივნა</option>
+                <option value="USD">USD - აშშ დოლარი</option>
+                <option value="UZS">UZS - უზბეკური სუმი</option>
+                <option value="ZAR">ZAR - სამხრეთ აფრიკული რანდი</option>
+            </select>
+
+            <label for="to-currency">რომელ ვალუტაში გსურთ თანხის გადაყვანა:</label>
+            <select id="to-currency" name="to-currency">
+                <option value="AED">AED - არაბეთის გაერთიანებული საამიროების დირჰამი</option>
+                <option value="AMD">AMD - სომხური დრამი</option>
+                <option value="AUD">AUD - ავსტრალიური დოლარი</option>
+                <option value="AZN">AZN - აზერბაიჯანული მანათი</option>
+                <option value="BGN">BGN - ბულგარული ლევი</option>
+                <option value="BRL">BRL - ბრაზილიური რიალი</option>
+                <option value="BYN">BYN - ბელარუსული რუბლი</option>
+                <option value="CAD">CAD - კანადური დოლარი</option>
+                <option value="CHF">CHF - შვეიცარიული ფრანკი</option>
+                <option value="CNY">CNY - ჩინური იუანი</option>
+                <option value="CZK">CZK - ჩეხური კრონა</option>
+                <option value="DKK">DKK - დანიური კრონი</option>
+                <option value="EGP">EGP - ეგვიპტური გირვანქა</option>
+                <option value="EUR">EUR - ევრო</option>
+                <option value="GBP">GBP - დიდი ბრიტანეთის გირვანქა სტერლინგი</option>
+                <option value="HKD">HKD - ჰონკონგური დოლარი</option>
+                <option value="HUF">HUF - უნგრული ფორინტი</option>
+                <option value="ILS">ILS - ისრაელის შეკელი</option>
+                <option value="INR">INR - ინდური რუპია</option>
+                <option value="IRR">IRR - ირანული რიალი</option>
+                <option value="ISK">ISK - ისლანდიური კრონი</option>
+                <option value="JPY">JPY - იაპონური იენი</option>
+                <option value="KGS">KGS - ყირგიზული სომი</option>
+                <option value="KRW">KRW - სამხრეთ კორეული ვონი</option>
+                <option value="KWD">KWD - ქუვეითური დინარი</option>
+                <option value="KZT">KZT - ყაზახური ტენგე</option>
+                <option value="MDL">MDL - მოლდოვური ლეი</option>
+                <option value="NOK">NOK - ნორვეგიული კრონი</option>
+                <option value="NZD">NZD - ახალზელანდიური დოლარი</option>
+                <option value="PLN">PLN - პოლონური ზლოტი</option>
+                <option value="QAR">QAR - კატარული რიალი</option>
+                <option value="RON">RON - რუმინული ლეი</option>
+                <option value="RSD">RSD - სერბიული დინარი</option>
+                <option value="RUB">RUB - რუსული რუბლი</option>
+                <option value="SEK">SEK - შვედური კრონი</option>
+                <option value="SGD">SGD - სინგაპურული დოლარი</option>
+                <option value="TJS">TJS - ტაჯიკური სომონი</option>
+                <option value="TMT">TMT - თურქმენული მანათი</option>
+                <option value="TRY">TRY - თურქული ლირა</option>
+                <option value="UAH">UAH - უკრაინული გრივნა</option>
+                <option value="USD">USD - აშშ დოლარი</option>
+                <option value="UZS">UZS - უზბეკური სუმი</option>
+                <option value="ZAR">ZAR - სამხრეთ აფრიკული რანდი</option>
+            </select>
+
+            <label for="amount">რა თანხის გადაყვანა გსურთ:</label>
+            <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+            <h1>{{amount}} {{fromm}} ==== {{result}} {{to}} </h1>
+
+            <button type="submit">გადაყვანა</button>
+        </form>
+    </div>
+</div>
+{% endblock convert %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Log in {% endblock %}
+
+
+{% block search %} {% endblock search %}
+
+
+{% block css %} rel="stylesheet" href="{{ url_for('static', filename='login.css')}}"  {% endblock css %}
+
+
+{% block login %}
+
+
+{% block back_to_main %}
+<a href="{{ url_for('home')}}" class="btn btn-primary">მთავარი მენიუ</a>
+{% endblock back_to_main %}
+
+
+<div class="center-form">
+    <form class="small-form" method="POST">
+        <div class="mb-3">
+            <label for="exampleInputEmail1"  class="form-label">მომხმარებლის სახელი</label>
+            <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" placeholder="პაროლი">პაროლი</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+        </div>
+
+        <button type="submit" class="btn btn-primary">შესვლა</button>
+        <a href="{{url_for('sign_up')}}">არ გაქვს ანგარიში?</a>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message  in messages %}
+                <p class="{{ category }}"> {{ message }} </p>
+            {% endfor %}
+        {% endwith %}
+
+    </form>
+</div>
+
+{% endblock login %}

@@ -1,0 +1,37 @@
+ .custom-card {
+    max-width: 900px;
+    margin: 80px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .custom-card:hover {
+    transform: scale(1.02);
+  }
+
+  .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 200px;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .text-body-secondary {
+    font-size: 0.875rem;
+    color: #999;
+  }

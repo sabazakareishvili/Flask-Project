@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block title %} ამინდის პროგნოზი {% endblock title %}
+
+
+{% block css %} rel="stylesheet" href="{{ url_for('static', filename='home.css')}}" {% endblock css %}
+
+{% block search %}
+<div class="d-flex justify-content-center mt-3">
+  <form class="d-flex" role="search" method="post" action="{{ url_for('search') }}">
+    <input class="form-control me-2" type="search" name="query" placeholder="შეიყვანეთ ქალაქი" aria-label="Search">
+    <button class="btn btn-primary" type="submit">ძებნა</button>
+  </form>
+</div>
+{% endblock search %}
+
+
+{% block listing %}
+<div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for city in data %}
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{city[13]}}" class="card-img-top" alt="Weather Icon">
+        <div class="card-body">
+          <h5 class="card-title">{{city[0]}}</h5>
+          <ul class="list-group">
+            <li class="list-group-item">{{city[3]}}</li>
+            <li class="list-group-item">ტემპერატურა: {{city[4]}}°C</li>
+            <li class="list-group-item">იგრძნობა როგორც: {{city[5]}}°C</li>
+            <li class="list-group-item">ნესტიანობა - {{city[6]}}%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock listing %}

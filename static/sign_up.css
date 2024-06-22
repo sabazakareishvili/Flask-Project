@@ -1,0 +1,27 @@
+ .error{
+            color: red;
+            font-weight: bold ;
+        }
+
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .center-form {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding-top: 50px;
+        }
+
+
+        .small-form {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #eeeaea;
+        }

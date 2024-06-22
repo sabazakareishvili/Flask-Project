@@ -1,0 +1,23 @@
+
+    .success {
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+
+    .center-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+
+    .small-form {
+        max-width: 350px;
+        width: 200%;
+    }

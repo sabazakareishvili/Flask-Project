@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Sign up {% endblock %}
+
+
+{% block css %} rel="stylesheet" href="{{ url_for('static', filename='sign_up.css')}}"  {% endblock css %}
+
+
+{% block back_to_main %}
+<a href="{{ url_for('home')}}" class="btn btn-primary">მთავარი მენიუ</a>
+{% endblock back_to_main %}
+
+
+{% block sign_up %}
+<body>
+    <div class="center-form">
+        <form method="POST" class="row g-3 small-form">
+            <div class="col-md-6">
+                <label for="validationServer01" class="form-label">სახელი</label>
+                <input type="text" class="form-control is-valid" name="name" id="validationServer01" placeholder="სახელი" required>
+                <div class="valid-feedback">
+                    კარგია!
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationServer02" class="form-label">გვარი</label>
+                <input type="text" class="form-control is-valid" name="lastname" id="validationServer02" placeholder="გვარი" required>
+                <div class="valid-feedback">
+                    კარგია!
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="validationServerUsername" class="form-label">მომხარებლის სახელი</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend3"></span>
+                    <input type="text" class="form-control is-invalid" name="username" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                        გთხოვთ აირჩიოთ მომხარებლის სახელი.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationServer03" class="form-label">ელ-ფოსტა</label>
+                <input type="email" class="form-control is-invalid" name="email" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    გთხოვთ შეიყვანოთ თქვენი ელ-ფოსტა.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationServer03" class="form-label">პაროლი</label>
+                <input type="password" class="form-control is-invalid" name="password" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    გთხოვთ შეიყვანოთ თქვენი პაროლი.
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                    <label class="form-check-label" for="invalidCheck3">
+                        დაეთანხმეთ პირობებს.
+                    </label>
+                    <div id="invalidCheck3Feedback" class="invalid-feedback">
+                        თქვენ უნდა ეთანხმებოდეთ პირობებს, სანამ დარეგისტრირდებით.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">რეგისტრაცია</button>
+            </div>
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% for category,message in messages %}
+                <p class="{{ category }}"> {{ message }}</p>
+            {%  endfor %}
+        {% endwith %}
+        </form>
+
+    </div>
+</body>
+{% endblock sign_up %}

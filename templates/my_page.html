@@ -1,0 +1,30 @@
+{% extends  'base.html' %}
+
+
+{% block title %} ჩემი გვერდი {% endblock title %}
+
+
+{% block css %} rel="stylesheet" href="{{ url_for('static', filename='my_page.css')}}" {% endblock css %}
+
+{% block my_page %}
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card" style="width: 18rem;">
+            <img src="https://cdn.icon-icons.com/icons2/3054/PNG/512/account_profile_user_icon_190494.png" class="card-img-top" alt="Profile Icon">
+            <div class="card-body text-center">
+                <h5 class="card-title">ჩემი ანგარიში</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">სახელი : {{ info.name }}</li>
+                <li class="list-group-item">გვარი : {{ info.lastname }}</li>
+                <li class="list-group-item">Username : {{ info.username }}</li>
+                <li class="list-group-item">ელ-ფოსტა : {{ info.email }}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock my_page %}
+
+
+
+{% block back_to_main %}
+    <a href="{{ url_for('home')}}" class="btn btn-primary">მთავარი მენიუ</a>
+{% endblock back_to_main %}

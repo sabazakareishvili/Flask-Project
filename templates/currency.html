@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block css %}rel="stylesheet" href="{{ url_for('static', filename='currency.css')}}" {% endblock css %}
+{% block title %} ვალუტა {% endblock title %}
+
+
+{% block back_to_main %}
+<a href="{{ url_for('home') }}" class="btn btn-primary">მთავარი მენიუ</a>
+{% endblock back_to_main %}
+
+
+{% block converter %}
+<a href="{{ url_for('convert') }}" class="btn btn-primary">ვალუტის კონვერტერი</a>
+{% endblock converter %}
+
+
+{% block download %}
+    <a href="{{ url_for('download') }}" class="btn btn-primary">
+        ვალუტის json
+        ფორმატის ჩამოტვირთვა
+    </a>
+{% endblock download %}
+
+
+{% block currency %}
+    <div class="row">
+        {% for info in data %}
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-title">{{info[0]}}</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ვალუტის იეროგლიფი: {{info[1]}}</li>
+                            <li class="list-group-item">{{info[2]}} {{info[1]}} -- {{info[3]}} GEL</li>
+                            <li class="list-group-item">გაუფასების % -- {{info[4]}}%</li>
+                            <li class="list-group-item">ბოლოს განახლდა: {{info[5]}} {{info[6]}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script src=".venv/currency.js"></script>
+{% endblock currency %}
+

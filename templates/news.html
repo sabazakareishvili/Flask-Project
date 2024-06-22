@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title %} ახალი ამბები {% endblock title %}
+
+
+{% block css %} rel="stylesheet" href="{{ url_for('static', filename='news.css')}}" {% endblock css %}
+
+
+{% block news %}
+
+
+{% block back_to_main %}
+<a href="{{ url_for('home')}}" class="btn btn-primary">მთავარი მენიუ</a>
+{% endblock back_to_main %}
+
+
+{% for info in data %}
+    <div class="card-container">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ info[3] }}" class="img-fluid rounded-start" alt="Image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ info[2] }}</h5>
+                        <p class="card-text"><small class="text-body-secondary">აიტვირთა : {{ info[1] }}</small></p>
+                        <a href="{{ url_for('read_more', title=info[2], image=info[3], content=info[4], time=info[1]) }}" class="btn btn-primary">ვრცლად</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock  news %}
